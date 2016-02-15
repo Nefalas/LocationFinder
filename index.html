@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=no,
+			shrink-to-fit=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+
+	<title>Location Finder</title>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<style>
+		@import 'ui/css/evothings-app.css';
+	</style>
+
+	<script>
+		// Redirect console.log to Evothings Workbench.
+		if (window.hyper && window.hyper.log) { console.log = hyper.log }
+	</script>
+
+</head>
+
+<body ontouchstart=""><!-- ontouchstart="" enables low-delay CSS transitions. -->
+
+<header>
+	<button class="back" onclick="history.back()">
+		<img src="ui/images/arrow-left.svg" />
+	</button>
+
+	<img class="logotype" src="ui/images/logo.svg" alt="Evothings" />
+
+	<!--<button class="menu" onclick=""><img src="ui/images/menu.svg" /></button>-->
+</header>
+
+<!----------------------------------------------------------------------------------------------------------------------
+Default page
+----------------------------------------------------------------------------------------------------------------------->
+
+<div id="page-default">
+
+	<h1>Location Finder</h1>
+
+	<div id="ipAskBox">
+		<span><b>Enter your server IP address</b></span>
+		<div id="ipAsk">
+			<form onsubmit="return saveIP()">
+				<input type="text" id="ip" value="http://00.00.0.00/">
+			</form>
+		</div>
+	</div>
+
+	<div id="optionBox" class="optionBox">
+		<button id="changeMyIp" class="greenButton"><b>Change IP</b></button>
+		<button id="manageBeacons" class="greenButton"><b>Manage beacons</b></button>
+	</div>
+
+	<div id = "myStatusBox">
+		<span id="connectStatus"><b>Disconnected</b></span>
+		<div id="myStatus">
+			<p>My location is <b>unknown</b></p>
+			<p>My status is <button id='availability'><b>busy</b></button></p>
+		</div>
+	</div>
+	
+	<ul id="friendList" class="dynamic"></ul>
+
+	<div id="addFriendAskBox" class="askBox">
+		<span><b>Enter name and IP</b></span>
+		<div id="friendAsk" class="ask">
+			<label for="friendName">Name</label><input type="text" id="friendName" class="inputBox">
+			<label for="friendIP">IP</label><input type="text" id="friendIP" class="inputBox">
+			<button id="cancelFriend" class="redButton"><b>Cancel</b></button>
+			<button id="addFriend" class="greenButton"><b>Add</b></button>
+		</div>
+	</div>
+	
+	<div id="addFriendBox">
+		<button id="addFriendButton" class="greenButton"><b>Add friend</b></button>
+	</div>
+
+</div>
+
+<!----------------------------------------------------------------------------------------------------------------------
+Manage beacons page
+----------------------------------------------------------------------------------------------------------------------->
+
+<div id="page-manageBeacons">
+	<h1>Manage Beacons</h1>
+
+	<div id="optionBox2" class="optionBox">
+		<button id="backToMain" class="greenButton"><b>Back to main page</b></button>
+	</div>
+
+	<div id="beaconLocationAskBox" class="askBox">
+		<span><b>Enter beacon location</b></span>
+		<div id="beaconLocationAsk" class="ask">
+			<input type="text" id="beaconLocation" class="inputBox">
+			<button id="cancel" class="redButton"><b>Cancel</b></button>
+			<button id="set" class="greenButton"><b>Set</b></button>
+		</div>
+	</div>
+
+	<p id="warning">
+		To detect iBeacons you will have to add the 128bit UUID's you
+		are looking for to the regions array in app.js of the iBeacon example.
+	</p>
+
+	<ul id="found-beacons" class="dynamic"></ul>
+
+</div>
+
+<script src="cordova.js"></script>
+<script src="libs/evothings/evothings.js"></script>
+<script src="libs/evothings/ui/ui.js"></script>
+<script src="libs/jquery/jquery.js"></script>
+<script src="app.js"></script>
+
+</body>
+
+</html>

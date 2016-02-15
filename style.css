@@ -1,0 +1,201 @@
+button:focus {
+    outline:0;
+}
+
+.greenButton {
+    font-size: 20px;
+    background: rgb(51, 142, 38);
+    position: relative;
+    padding: 5px 10px 3px 10px;
+}
+
+.inputBox {
+    width: 85%;
+    display: block;
+    margin: 0 auto 15px auto;
+}
+
+.redButton {
+    font-size: 20px;
+    background: rgb(255, 5, 0);
+    position: relative;
+    padding: 5px 10px 3px 10px;
+}
+
+.askBox {
+    display: none;
+    position: fixed;
+    top: 40%;
+    left: 24px;
+    right: 24px;
+    z-index: 5;
+}
+
+.askBox span {
+    font-size: 22px;
+    background: rgb(72, 133, 155);
+    position: relative;
+    margin: 0;
+    padding: 5px 10px 5px 10px;
+    z-index: 1;
+    border: 2px solid black;
+}
+
+.ask {
+    font-size: 30px;
+    padding: 10px;
+    background: rgb(71, 162, 203);
+    position: relative;
+    z-index: 2;
+    border: 2px solid black;
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------
+Default page
+----------------------------------------------------------------------------------------------------------------------*/
+
+#ipAskBox {
+    margin-top: 20px;
+    display: none;
+}
+
+#ipAskBox span {
+    font-size: 22px;
+    background: rgb(51, 142, 38);
+    position: relative;
+    margin: 0;
+    padding: 5px 10px 5px 10px;
+    z-index: 1;
+}
+
+#ipAsk {
+    font-size: 30px;
+    padding: 10px;
+    background: rgb(65, 203, 49);
+    position: relative;
+    z-index: 2;
+}
+
+#ip {
+    width: 85%;
+    display: block;
+    margin: 0 auto;
+}
+
+.optionBox {
+    margin-top: 20px;
+    position: relative;
+}
+
+#myStatusBox {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+#myStatusBox span {
+    font-size: 22px;
+    background: rgb(72, 133, 155);
+    position: relative;
+    margin: 0;
+    padding: 5px 10px 5px 10px;
+    z-index: 1;
+}
+
+#myStatus {
+    font-size: 30px;
+    padding: 10px;
+    background: rgb(71, 162, 203);
+    position: relative;
+    z-index: 2;
+}
+
+#myStatus p {
+    margin: 0;
+    padding: 0;
+}
+
+#myStatus button {
+    font-size: 20px;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    padding: 3px;
+    background: rgb(255, 5, 0);
+}
+
+#addFriendBox {
+    text-align: center;
+}
+
+#addFriendButton {
+    margin-top: 20px;
+}
+
+#addFriendAskBox {
+    top: 34%;
+}
+
+#addFriendAskBox span {
+    background: rgb(51, 142, 38);
+}
+
+#friendAsk {
+    background: rgb(65, 203, 49);
+    font-size: 20px;
+}
+
+#friendAsk input {
+    margin-bottom: 10px;
+    width: 65%;
+}
+
+#friendAsk label {
+    display: block;
+    width: 60px;
+    float: left;
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------
+Manage Beacons page
+----------------------------------------------------------------------------------------------------------------------*/
+
+#page-manageBeacons {
+    display: none;
+}
+
+#backToMain {
+    margin-bottom: 20px;
+}
+
+#beaconLocation {
+    width: 85%;
+    display: block;
+    margin: 0 auto 15px auto;
+}
+
+.actionButton {
+    font-size: 20px;
+    background: rgb(72, 133, 155);
+    position: relative;
+    padding: 5px 10px 3px 10px;
+    margin-bottom: 10px;
+}
+
+#beaconLocationName {
+    font-size: 22px;
+}
+
+#cancel {
+    font-size: 20px;
+    background: rgb(255, 5, 0);
+    position: relative;
+    padding: 5px 10px 3px 10px;
+}
+
+.removeButton {
+    font-size: 20px;
+    background: rgb(255, 5, 0);
+    position: relative;
+    padding: 5px 10px 3px 10px;
+    margin-bottom: 10px;
+}
