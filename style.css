@@ -79,7 +79,7 @@ Default page
 #ip {
     width: 85%;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 10px auto;
 }
 
 .optionBox {

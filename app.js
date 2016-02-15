@@ -12,6 +12,10 @@ var firstConnection = true;
 // Used for displaying friend list
 var friendStatusList = [];
 
+if (!localStorage.friends) {
+    localStorage.friends = "{}";
+}
+
 //localStorage.friends = "{}"; // Used for emptying friends object
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -42,6 +46,24 @@ function buttonSetup() {
         document.getElementById("ip").value = localStorage.ip;
         $("#ipAskBox").show();
         $("#optionBox").hide();
+    });
+
+    var cancelIp = document.getElementById("cancelIp");
+    cancelIp.addEventListener("click", function() {
+        $("#ipAskBox").hide();
+        $("#optionBox").show();
+    });
+
+    var setIp = document.getElementById("setIp");
+    setIp.addEventListener("click", function() {
+        var ipBox = document.getElementById("ip");
+        if (ipBox.value == "") {
+            alert("The field is empty")
+        } else if (ipIsIncorrect(ipBox.value)) {
+            alert("This IP is incorrect !\nMake sure is doesn't contain any spaces, starts with 'http://' and ends with '/'");
+        } else if (ipBox.value) {
+            saveIP();
+        }
     });
 
     // Access beacon management page
@@ -76,7 +98,14 @@ function buttonSetup() {
 
     var addFriend = document.getElementById("addFriend");
     addFriend.addEventListener("click", function() {
-        if (friendName.value && friendIP.value) {
+        if (friendName.value == "" || friendIP.value == "") {
+            alert("You must fill in all the fields !");
+        } else if (JSON.parse(localStorage.friends).hasOwnProperty(friendName.value)) {
+            friendName.value = "";
+            alert("This name is already taken !");
+        } else if (ipIsIncorrect(friendIP.value)) {
+            alert("This IP is incorrect !\nMake sure is doesn't contain any spaces, starts with 'http://' and ends with '/'");
+        } else if (friendName.value && friendIP.value) {
             saveFriend(friendName.value, friendIP.value);
             $("#addFriendAskBox").hide();
             friendName.value = "";
@@ -194,6 +223,11 @@ function setConnectedStatus(isConnected) {
     } else {
         connectStatus.innerHTML = "<b>Disconnected</b>";
     }
+}
+
+// Testing if the IP is incorrect, i.e it contains spaces, doesn't start with 'http://' or ends with '/'
+function ipIsIncorrect(ip) {
+    return (ip.indexOf(" ") != -1 || ip.indexOf("http://") != 0 || ip.slice(-1) != "/")
 }
 
 // Save IP entered in IP textbox into localStorage
@@ -424,8 +458,8 @@ var app = (function()
 
         if (!isConnected) {
             var myStatus = document.getElementById("myStatus");
-            myStatus.innerHTML = "<p>My current location is <b>" + myLocation + "</b></p>" +
-                "<p>My current status is <button id='availability'><b>busy</b></button></p>";
+            myStatus.innerHTML = "<p>My  location is <b>" + myLocation + "</b></p>" +
+                "<p>My status is <button id='availability'><b>busy</b></button></p>";
         }
 
         for (var i = 0; i < beaconKeyRssiArray.length; i++) {
@@ -455,9 +489,9 @@ var app = (function()
 
                 var button;
                 if (localStorage.getItem(key)) {
-                    button = '<button id="' + key + 'remove" class="removeButton"><b>Remove beacon</b></button>'
+                    button = '<button id="' + key + 'remove" class="removeButton"><b>Remove location</b></button>'
                 } else {
-                    button = '<button id="' + key + 'save" class="actionButton"><b>Save beacon</b></button>'
+                    button = '<button id="' + key + 'save" class="actionButton"><b>Save location</b></button>'
                 }
 
                 // Create tag to display beacon data.

@@ -43,11 +43,11 @@ Default page
 	<h1>Location Finder</h1>
 
 	<div id="ipAskBox">
-		<span><b>Enter your server IP address</b></span>
+		<span><b>Server IP address</b></span>
 		<div id="ipAsk">
-			<form onsubmit="return saveIP()">
-				<input type="text" id="ip" value="http://00.00.0.00/">
-			</form>
+			<input type="text" id="ip" value="http://00.00.0.00/">
+			<button id="cancelIp" class="redButton"><b>Cancel</b></button>
+			<button id="setIp" class="greenButton"><b>Set</b></button>
 		</div>
 	</div>
 
@@ -63,7 +63,7 @@ Default page
 			<p>My status is <button id='availability'><b>busy</b></button></p>
 		</div>
 	</div>
-	
+
 	<ul id="friendList" class="dynamic"></ul>
 
 	<div id="addFriendAskBox" class="askBox">
@@ -75,7 +75,7 @@ Default page
 			<button id="addFriend" class="greenButton"><b>Add</b></button>
 		</div>
 	</div>
-	
+
 	<div id="addFriendBox">
 		<button id="addFriendButton" class="greenButton"><b>Add friend</b></button>
 	</div>
